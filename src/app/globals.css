@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-midnight-navy text-cool-silver font-sans relative;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-white;
+  }
+
+  /* Main content should be on a higher stacking context than the noise overlay */
+  div#__next {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/* Noise texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB-VEPuteXgQG9DOnTin1ULphRtZOKFeSEOqqAi0K_TBLdZtbQ5KVlJ0W6eViWE5IMp1i2oyFlsdI55tOVyis8KyjMEtumyDYxJdqLnz_8w9NhOYhYmfaPf5O_0LQDMDkw6Ev_dgO8uS7OalH6ZG7bSwdEBYK2MmyG4WcrsjUFGr1yUcvx2Hb-9XMLja6uKJqnHRxJ_hn6XM1TIpc-Q6kH8FUcYLHbtA_9_E1SKsvbCqqFenhtDEkFJwkiZKPWcTZrzULJA2hNpwy3K');
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+}
